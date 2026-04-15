@@ -36,7 +36,7 @@ export default function Financeiro() {
             <div className="flex items-center justify-center">
               <ResponsiveContainer width="100%" height={250}>
                 <PieChart>
-                  <Pie data={despesasBreakdown} cx="50%" cy="50%" innerRadius={60} outerRadius={100} dataKey="valor" nameKey="nome" label={({ nome, valor }) => `${nome}: ${valor}%`}>
+                  <Pie data={despesasBreakdown} cx="50%" cy="50%" innerRadius={60} outerRadius={100} dataKey="valor" nameKey="nome" label={({ name, value }: { name: string; value: number }) => `${name}: ${value}%`}>
                     {despesasBreakdown.map((entry, i) => <Cell key={i} fill={entry.cor} />)}
                   </Pie>
                   <Tooltip contentStyle={{ background: 'hsl(150 25% 13%)', border: '1px solid hsl(150 15% 20%)', borderRadius: 8, color: '#fff' }} formatter={(v: number) => `${v}%`} />
