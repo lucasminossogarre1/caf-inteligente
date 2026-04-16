@@ -71,7 +71,31 @@
   }
 }
 
+@keyframes splash-logo-in {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes splash-text-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes splash-ring {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.45; transform: scale(1.06); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @layer utilities {
+  .animate-slide-up {
+    animation: slide-up 0.45s ease-out both;
+  }
+
   .gradient-card {
     background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(20 12% 11%) 100%);
   }

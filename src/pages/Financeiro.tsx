@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cashFlowData, despesasBreakdown, transacoes, fazendas } from "@/data/mockData";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, PieChart, Pie, Cell } from "recharts";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, TrendingUp, Sparkles } from "lucide-react";
 
 const allTalhoes = fazendas.flatMap(f => f.talhoes).filter(t => t.custoSaca > 0);
 const fmt = (v: number) => v.toLocaleString('pt-BR');
@@ -13,6 +13,31 @@ export default function Financeiro() {
     <Layout>
       <div className="space-y-6 animate-slide-up">
         <h1 className="text-2xl font-bold text-foreground">Financeiro</h1>
+
+        {/* ROI Card */}
+        <Card className="p-5 border-success/30 bg-success/5">
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="h-4 w-4 text-success" />
+            <h3 className="text-sm font-semibold text-success uppercase tracking-wider">Retorno sobre Investimento — CaféMap</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Ganhos identificados pela IA</p>
+              <p className="text-3xl font-bold text-success">R$ 1.581.944</p>
+              <p className="text-xs text-muted-foreground mt-1">Receita specialty + timing de venda otimizado</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Custo anual do sistema</p>
+              <p className="text-3xl font-bold text-foreground">R$ 40.000</p>
+              <p className="text-xs text-muted-foreground mt-1">Licença anual — 3 fazendas ilimitadas</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">ROI calculado</p>
+              <p className="text-3xl font-bold text-accent">39,5x</p>
+              <p className="text-xs text-muted-foreground mt-1">Para cada R$1 investido, R$39,50 de retorno</p>
+            </div>
+          </div>
+        </Card>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Cash flow chart */}

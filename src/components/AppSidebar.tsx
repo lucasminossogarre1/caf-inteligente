@@ -1,6 +1,6 @@
 import {
   LayoutDashboard, Map, Wheat, DollarSign, Bot, TrendingUp,
-  Wrench, MessageCircle, Settings, Coffee
+  Wrench, MessageCircle, Settings
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -29,10 +29,29 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarContent>
-        <div className="p-4 flex items-center gap-2">
-          <Coffee className="h-7 w-7 text-accent shrink-0" />
+        <div className="p-4 flex items-center gap-2.5">
+          <div
+            className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+            style={{
+              background: 'linear-gradient(145deg, hsl(38 92% 50% / 0.2), hsl(20 18% 13%))',
+              border: '1px solid hsl(38 92% 50% / 0.35)',
+              boxShadow: '0 0 12px hsl(38 92% 50% / 0.12)',
+            }}
+          >
+            <CoffeeBeanLogo />
+          </div>
           {!collapsed && (
-            <span className="text-lg font-bold text-foreground tracking-tight">CaféMap</span>
+            <span
+              className="text-lg font-bold tracking-tight"
+              style={{
+                background: 'linear-gradient(135deg, hsl(38 92% 65%), hsl(38 92% 50%))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              CaféMap
+            </span>
           )}
         </div>
         <SidebarGroup>
@@ -58,5 +77,15 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
+  );
+}
+
+function CoffeeBeanLogo() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="10" cy="10" rx="6.5" ry="8" stroke="hsl(38, 92%, 55%)" strokeWidth="1.4" fill="hsl(38, 92%, 50%, 0.06)" />
+      <path d="M10 3 C8.2 5.5 8.2 10 10 12.5 C8.2 12.5 8.2 15 10 17" stroke="hsl(38, 92%, 55%)" strokeWidth="1.1" fill="none" strokeLinecap="round" />
+      <path d="M10 3 C11.8 5.5 11.8 10 10 12.5 C11.8 12.5 11.8 15 10 17" stroke="hsl(38, 92%, 55%)" strokeWidth="1.1" fill="none" strokeLinecap="round" />
+    </svg>
   );
 }

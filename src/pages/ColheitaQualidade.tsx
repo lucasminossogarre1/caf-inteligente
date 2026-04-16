@@ -28,7 +28,7 @@ export default function ColheitaQualidade() {
                 <AlertTriangle className="h-5 w-5 text-accent mt-0.5" />
                 <div>
                   <p className="text-sm font-semibold text-accent">Alerta da IA Agrônoma</p>
-                  <p className="text-sm text-foreground/80 mt-1">Talhão A3 tem pontuação 84 SCA — separe este lote antes de misturar. Estimativa de ganho adicional: R$ 128.000</p>
+                  <p className="text-sm text-foreground/80 mt-1">Talhão A3 tem pontuação 84 SCA — separe este lote <strong>agora</strong> antes de misturar com commodity. Vender como Specialty (R$ 2.340/sc) em vez de commodity (R$ 1.076/sc) representa <strong className="text-accent">R$ 1.486.464</strong> em receita adicional nesta safra.</p>
                 </div>
               </div>
             </Card>

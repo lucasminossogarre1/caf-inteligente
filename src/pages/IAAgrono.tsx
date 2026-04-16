@@ -5,15 +5,17 @@ import { Bot, Send, Lightbulb, TrendingUp, BarChart3 } from "lucide-react";
 
 const preloadedMessages = [
   { role: 'user' as const, content: 'Qual meu talhão mais lucrativo?' },
-  { role: 'assistant' as const, content: 'O Talhão A3 da Fazenda Serra Verde é seu melhor ativo: 84 pontos SCA, custo de R$298/sc e rendimento de 98sc/ha. Potencial specialty não aproveitado nas últimas 2 safras representa R$128k em receita perdida.' },
+  { role: 'assistant' as const, content: 'Talhão A3 — Fazenda Serra Verde é seu maior ativo: 84 pts SCA (nível Specialty), custo de R$ 298/sc, produtividade de 98 sc/ha. 1.176 sacas vendidas como commodity (R$ 1.076/sc) quando deveriam ser certificadas como Specialty (R$ 2.340/sc) = R$ 1.486.464 em receita não realizada só nesta safra.' },
   { role: 'user' as const, content: 'E o pior?' },
-  { role: 'assistant' as const, content: 'Talhão B1 — Fazenda Boa Vista. Custo de R$612/sc, rendimento 41sc/ha. Histórico mostra queda consistente. Recomendo análise de solo e revisão do manejo de irrigação.' },
+  { role: 'assistant' as const, content: 'Talhão B1 — Fazenda Boa Vista. Custo de R$ 612/sc, rendimento em queda consistente: 520 → 470 → 410 sacas nas últimas 3 safras. Recomendo análise de solo completa e revisão de irrigação antes da próxima safra. Custo de ação estimado: R$ 8.000. Custo de inação: perda contínua de produtividade.' },
+  { role: 'user' as const, content: 'Vale vender as sacas agora?' },
+  { role: 'assistant' as const, content: 'Preço atual: R$ 1.076/sc. Histórico 2022–2025 mostra pico em Agosto–Outubro (R$ 1.180–1.230/sc). Com 620 sacas em estoque, aguardar pode render até R$ 95.480 a mais. Sugestão: aguardar com stop de venda em R$ 1.050/sc para proteger de queda. Risco de esperar: baixo. Ganho potencial: alto.' },
 ];
 
 const insights = [
-  { icon: Lightbulb, title: 'Oportunidade Perdida', desc: 'Mistura de lotes custou ~R$ 248.000 nesta safra', color: 'text-accent' },
-  { icon: TrendingUp, title: 'Projeção 2026', desc: 'Safra 2026 projetada: 5.100 sacas (+5,8%)', color: 'text-success' },
-  { icon: BarChart3, title: 'Janela de Venda', desc: 'Melhor janela de venda histórica: Setembro–Outubro', color: 'text-info' },
+  { icon: Lightbulb, title: 'Receita não realizada', desc: 'R$ 1.486.464 — Talhão A3 vendido como commodity (84 SCA merece Specialty)', color: 'text-accent' },
+  { icon: TrendingUp, title: 'Projeção 2026', desc: 'Safra 2026 projetada: 5.100 sacas (+5,8%). Com A3 certificado: R$ 11,9M de receita potencial.', color: 'text-success' },
+  { icon: BarChart3, title: 'Janela de Venda', desc: 'Agosto–Outubro: janela histórica de pico. 620 sacas em estoque = +R$ 95.480 aguardando.', color: 'text-info' },
 ];
 
 export default function IAAgrono() {

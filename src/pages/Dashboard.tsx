@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { kpis, fazendas, cashFlowData, aiAlerts } from "@/data/mockData";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from "recharts";
-import { TrendingUp, TrendingDown, Wheat, DollarSign, Percent, AlertTriangle, Info, Plus, Eye } from "lucide-react";
+import { TrendingUp, TrendingDown, Wheat, DollarSign, Percent, AlertTriangle, Info, Plus, Eye, Sparkles } from "lucide-react";
 import { Layout } from "@/components/Layout";
 
 const fmt = (v: number) => v.toLocaleString('pt-BR');
@@ -33,8 +33,30 @@ export default function Dashboard() {
       <div className="space-y-6 animate-slide-up">
         <div>
           <h1 className="text-2xl font-bold text-foreground">Dashboard Executivo</h1>
-          <p className="text-muted-foreground text-sm">Safra 2025 — Região do Cerrado Mineiro</p>
+          <p className="text-muted-foreground text-sm">Safra 2025 — Região do Cerrado Mineiro · 3 fazendas · 107 hectares</p>
         </div>
+
+        {/* AI ROI Banner */}
+        <Card className="p-5 border-accent/40 bg-gradient-to-r from-accent/10 via-accent/5 to-transparent">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Sparkles className="h-4 w-4 text-accent" />
+                <span className="text-xs font-semibold text-accent uppercase tracking-widest">Potencial identificado pela IA — Safra 2025</span>
+              </div>
+              <p className="text-4xl font-bold text-foreground">R$ 1.486.464</p>
+              <p className="text-sm text-muted-foreground mt-1">em receita adicional disponível · Talhão A3 ainda não classificado como Specialty</p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
+              <p className="text-xs text-muted-foreground">1.176 sacas × R$ 1.264/sc de diferença</p>
+              <p className="text-xs text-muted-foreground">Specialty (R$ 2.340/sc) vs. Commodity (R$ 1.076/sc)</p>
+              <div className="flex gap-2 flex-wrap">
+                <Badge className="bg-accent/20 text-accent border-accent/30">ROI do sistema: 37x</Badge>
+                <Badge className="bg-success/20 text-success border-success/30">Ação disponível agora</Badge>
+              </div>
+            </div>
+          </div>
+        </Card>
 
         {/* KPIs */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

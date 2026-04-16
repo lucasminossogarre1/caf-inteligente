@@ -3,9 +3,16 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { precoHistorico, concorrentes } from "@/data/mockData";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
-import { TrendingUp, Bell, Target, Bot } from "lucide-react";
+import { TrendingUp, Bell, Target, Bot, Calculator } from "lucide-react";
+import { useState } from "react";
 
 export default function Mercado() {
+  const [simSacas, setSimSacas] = useState(620);
+  const [simPreco, setSimPreco] = useState(1076);
+  const receitaAtual = simSacas * simPreco;
+  const receitaSpecialty = simSacas * 2340;
+  const diferencaSpecialty = receitaSpecialty - receitaAtual;
+
   return (
     <Layout>
       <div className="space-y-6 animate-slide-up">
@@ -84,6 +91,50 @@ export default function Mercado() {
             <p className="text-sm text-muted-foreground">Com base no histórico 2022–2025, preços tendem a subir em Agosto. Considere aguardar.</p>
           </Card>
         </div>
+
+        {/* Price Simulator */}
+        <Card className="gradient-card p-5 border-accent/30">
+          <div className="flex items-center gap-2 mb-4">
+            <Calculator className="h-4 w-4 text-accent" />
+            <h3 className="text-sm font-semibold text-foreground">Simulador de Receita</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div>
+                <label className="text-xs text-muted-foreground uppercase tracking-wider">Sacas disponíveis: <strong className="text-foreground">{simSacas.toLocaleString('pt-BR')}</strong></label>
+                <input type="range" min={100} max={4820} step={10} value={simSacas}
+                  onChange={e => setSimSacas(Number(e.target.value))}
+                  className="w-full mt-2 accent-accent" />
+              </div>
+              <div>
+                <label className="text-xs text-muted-foreground uppercase tracking-wider">Preço por saca: <strong className="text-foreground">R$ {simPreco.toLocaleString('pt-BR')}</strong></label>
+                <input type="range" min={800} max={2500} step={10} value={simPreco}
+                  onChange={e => setSimPreco(Number(e.target.value))}
+                  className="w-full mt-2 accent-accent" />
+                <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+                  <span>R$ 800 (mín)</span>
+                  <span className="text-accent">R$ 1.076 (atual)</span>
+                  <span className="text-accent font-bold">R$ 2.340 (specialty)</span>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="p-4 rounded-lg bg-muted/30">
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">Receita ao preço selecionado</p>
+                <p className="text-2xl font-bold text-foreground mt-1">R$ {receitaAtual.toLocaleString('pt-BR')}</p>
+              </div>
+              <div className="p-4 rounded-lg bg-accent/10 border border-accent/20">
+                <p className="text-xs text-accent uppercase tracking-wider">Se classificar como Specialty (R$ 2.340/sc)</p>
+                <p className="text-2xl font-bold text-accent mt-1">R$ {receitaSpecialty.toLocaleString('pt-BR')}</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {diferencaSpecialty > 0
+                    ? <span className="text-success font-semibold">+R$ {diferencaSpecialty.toLocaleString('pt-BR')} a mais</span>
+                    : <span className="text-muted-foreground">já no preço specialty</span>}
+                </p>
+              </div>
+            </div>
+          </div>
+        </Card>
 
         {/* Competitor table */}
         <Card className="gradient-card border-border/50 overflow-hidden">

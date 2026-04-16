@@ -83,9 +83,9 @@ export const cashFlowData = [
 
 // ===== AI ALERTS =====
 export const aiAlerts = [
-  { id: 1, tipo: 'warning', msg: 'Talhão A3 tem pontuação 84 SCA — separe este lote antes de misturar. Ganho estimado: R$ 128.000' },
-  { id: 2, tipo: 'danger', msg: 'Talhão B1 com queda de produtividade consistente. Análise de solo recomendada.' },
-  { id: 3, tipo: 'info', msg: 'Melhor janela de venda histórica: Setembro–Outubro. Considere aguardar.' },
+  { id: 1, tipo: 'warning', msg: 'Talhão A3 — 84 SCA: separe este lote como Specialty antes de misturar. Vender como commodity custa R$ 1.486.464 em receita não realizada (1.176 sc × R$ 1.264/sc de diferença).' },
+  { id: 2, tipo: 'danger', msg: 'Talhão B1 com queda de produtividade consistente por 3 safras (520→470→410 sacas). Análise de solo e revisão de irrigação recomendadas.' },
+  { id: 3, tipo: 'info', msg: 'Melhor janela de venda histórica: Agosto–Outubro. Com 620 sacas em estoque, aguardar pode render até R$ 95.480 adicionais (vs. preço atual).' },
 ];
 
 // ===== HARVESTS =====
